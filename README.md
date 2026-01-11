@@ -1,6 +1,8 @@
 # Text Editor with Corporate Themes
 
 Текстовый редактор с веб-интерфейсом и поддержкой корпоративных тем РОСНЕФТЬ, РОСАТОМ, РУСАЛ.
+<img width="1430" height="506" alt="изображение" src="https://github.com/user-attachments/assets/c6100dce-e55d-4d3b-adea-905ffd2ed095" />
+
 
 ## Запуск
 
