@@ -14,8 +14,8 @@ RUN apk --no-cache add ca-certificates nginx
 
 WORKDIR /app
 
+# Copy the binary
 COPY --from=builder /app/main .
-COPY --from=builder /app/files /app/files
 
 # Create directories
 RUN mkdir -p /var/www/html /app/files
@@ -30,9 +30,6 @@ COPY nginx/ /var/www/html/
 EXPOSE 80 8080
 
 # Create startup script
-RUN echo '#!/bin/sh\n\
-mkdir -p /app/files\n\
-nginx &\n\
-exec /app/main\n' > /start.sh && chmod +x /start.sh
+RUN printf '#!/bin/sh\nmkdir -p /app/files\nnginx &\nexec /app/main\n' > /start.sh && chmod +x /start.sh
 
 CMD ["/start.sh"]
