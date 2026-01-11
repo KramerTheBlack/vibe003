@@ -52,7 +52,7 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	if filename == "" {
 		filename = "document.txt"
 	}
-	if !filepath.Ext(filename) {
+	if filepath.Ext(filename) == "" {
 		filename += ".txt"
 	}
 
