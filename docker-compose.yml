@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: text-editor
+    ports:
+      - "8080:80"
+    volumes:
+      - files_data:/app/files
+    restart: unless-stopped
+
+volumes:
+  files_data:

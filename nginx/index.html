@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текстовый редактор</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Меню -->
+        <nav class="menu">
+            <div class="menu-left">
+                <div class="menu-item dropdown">
+                    <span class="menu-label">Файл</span>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="newDocument()">Новый</a>
+                        <a href="#" onclick="saveDocument()">Сохранить</a>
+                        <a href="#" onclick="loadDocument()">Загрузить</a>
+                    </div>
+                </div>
+                <div class="menu-item dropdown">
+                    <span class="menu-label">Правка</span>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="document.getElementById('editor').value = ''">Очистить</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-center">
+                <h1>Текстовый редактор</h1>
+            </div>
+            <div class="menu-right">
+                <div class="menu-item dropdown">
+                    <span class="menu-label corporate-label">🏢 Корпоративные цвета</span>
+                    <div class="dropdown-content corporate-dropdown">
+                        <a href="#" onclick="setTheme('rosneft')">
+                            <span class="color-dot rosneft"></span> РОСНЕФТЬ
+                        </a>
+                        <a href="#" onclick="setTheme('rosatom')">
+                            <span class="color-dot rosatom"></span> РОСАТОМ
+                        </a>
+                        <a href="#" onclick="setTheme('rusal')">
+                            <span class="color-dot rusal"></span> РУСАЛ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Панель инструментов -->
+        <div class="toolbar">
+            <input type="text" id="filename" placeholder="Имя файла..." value="document.txt">
+            <button onclick="saveDocument()" class="btn">💾 Сохранить</button>
+            <button onclick="loadDocument()" class="btn">📂 Загрузить</button>
+            <button onclick="newDocument()" class="btn">📄 Новый</button>
+        </div>
+
+        <!-- Область редактирования -->
+        <div class="editor-container">
+            <textarea id="editor" placeholder="Введите текст здесь..."></textarea>
+        </div>
+
+        <!-- Статусная строка -->
+        <div class="statusbar">
+            <span id="status">Готов</span>
+        </div>
+    </div>
+
+    <!-- Модальное окно загрузки -->
+    <div id="loadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Выберите файл</h2>
+            <div id="fileList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
